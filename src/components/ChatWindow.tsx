@@ -28,14 +28,13 @@ export const ChatWindow = () => {
     setMessages([...messages, newMessage]);
     setInput("");
     
-    // TODO: Implement AI response logic
     console.log("Sending message:", input);
   };
 
   return (
-    <div className="flex flex-col h-full bg-white rounded-lg shadow-md">
-      <div className="p-4 border-b">
-        <h2 className="text-lg font-semibold">Chat Assistant</h2>
+    <div className="flex flex-col h-full bg-background/95 dark:bg-[#1A1F2C] rounded-lg shadow-md">
+      <div className="p-4 border-b dark:border-gray-700">
+        <h2 className="text-lg font-semibold">Nexus</h2>
       </div>
       
       <ScrollArea className="flex-1 p-4">
@@ -50,8 +49,8 @@ export const ChatWindow = () => {
               <div
                 className={`max-w-[80%] p-3 rounded-lg ${
                   message.sender === "user"
-                    ? "bg-primary text-white"
-                    : "bg-secondary"
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-secondary text-secondary-foreground dark:bg-gray-800"
                 }`}
               >
                 {message.content}
@@ -61,7 +60,7 @@ export const ChatWindow = () => {
         </div>
       </ScrollArea>
       
-      <div className="p-4 border-t">
+      <div className="p-4 border-t dark:border-gray-700">
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -73,7 +72,7 @@ export const ChatWindow = () => {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type your message..."
-            className="flex-1"
+            className="flex-1 dark:bg-gray-800 dark:border-gray-700"
           />
           <Button type="submit" size="icon">
             <Send className="h-4 w-4" />

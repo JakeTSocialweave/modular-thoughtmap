@@ -42,13 +42,13 @@ export const TodoList = () => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md h-full">
-      <div className="p-4 border-b">
+    <div className="bg-background/95 dark:bg-[#1A1F2C] rounded-lg shadow-md h-full">
+      <div className="p-4 border-b dark:border-gray-700">
         <h2 className="text-lg font-semibold">Tasks</h2>
       </div>
 
       <Tabs defaultValue="day" className="w-full">
-        <TabsList className="w-full">
+        <TabsList className="w-full dark:bg-gray-800">
           <TabsTrigger value="day" className="flex-1">Day</TabsTrigger>
           <TabsTrigger value="week" className="flex-1">Week</TabsTrigger>
           <TabsTrigger value="month" className="flex-1">Month</TabsTrigger>
@@ -61,7 +61,7 @@ export const TodoList = () => {
                 {todos
                   .filter((todo) => todo.timeframe === timeframe)
                   .map((todo) => (
-                    <div key={todo.id} className="flex items-center gap-2">
+                    <div key={todo.id} className="flex items-center gap-2 dark:bg-gray-800/50 p-2 rounded">
                       <Checkbox
                         checked={todo.completed}
                         onCheckedChange={() => toggleTodo(todo.id)}
@@ -81,7 +81,7 @@ export const TodoList = () => {
             value={newTodo}
             onChange={(e) => setNewTodo(e.target.value)}
             placeholder="Add new task..."
-            className="flex-1"
+            className="flex-1 dark:bg-gray-800 dark:border-gray-700"
           />
           <Button type="submit" size="icon">
             <Plus className="h-4 w-4" />
